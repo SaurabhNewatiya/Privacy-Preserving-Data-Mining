@@ -38,3 +38,43 @@ Background-knowledge Attack: By knowing the certain background knowledge one can
 # # Limitations:
 Removing only some of the obvious identifiers doesn’t help as the remaining set of identifiers, known as quasi identifiers can combine together and use the available dataset to re- identify a particular individual.
 Also, as K increases the level of anonymity increases but the information loss also increases as the values of the attributes or the identifiers keeps on decreasing. So there is heavy distortion of data with increase in the value of k or the level of anonymity. Also, it does not take into consideration the sensitive attributes for anonymization which can disclose information.
+
+
+
+
+# # L-Diversity
+Introduction
+This technique is basically the expansion of K-Anonymity by adding the mechanism of intra group diversity of sensitive values. Each group in the table containing well-represented values is referred as an equivalence class. L-7
+Diversity model basically have at least ‘l’ (l>=2) well-represented values in any given equivalence class. A dataset is said to be L Diverse if all the existing equivalence classes are L-Diverse.[3]
+Distinct L-Diversity: If there are at least l-diverse well-represented values in any equivalence class and also it satisfies k-anonymity with k=l then it is known as distinct
+
+Skewness Attack: When the distribution of an attribute in the overall table is skewed, satisfying l-diversity does not prevent sensitive attribute disclosure. For example, let us assume that there is a healthcare dataset having only 2 distinct diseases in the overall table. Applying L-diversity on this table won’t be of much help because the probability of having a particular disease from the two of them is 50%. So, a person having some background knowledge can easily identify the target and it’s sensitive attribute.[3]
+
+
+# # Advantages:
+Provides a greater distribution of sensitive attributes within the group, thus increasing data protection. Because if anyone who have some background information will end up having ‘l’ cases to choose from.
+Protection of sensitive attributes in more than that in K-anonymity technique because it takes into consideration the diversity of the sensitive attributes which leads an adversary to have ‘l-1’ distinct private information to get the sensitive information of an individual.
+It is slightly better than k-anonymity due to faster pruning.
+Different adversaries can have different background knowledge leading to different inferences. It simultaneously protects against all of them without the need for checking which inferences can be made with which levels of background knowledge.
+Limitations:
+Redundant and laborious to achieve. Being better than K-anonymity it is less in use. And the distribution of sensitivity is much of a tedious job as it should have ‘l’ well represented sensitive attributes.
+Prone to skewness attack and similarity attack.
+
+# # T-Closeness
+
+# Introduction
+This technique was presented in order to prevent the skewness attacks encountered in L-Diversity. In this sensitive values of each equivalence class are close to the distribution in the whole table where close is upper bounded by the threshold t. T-closeness is said to occur when an equivalence class has the distance between the distribution of a sensitive attribute and the distribution of the attribute in the whole table exceeding not more than a threshold t. A table is said to have t-closeness if all equivalence classes have t-closeness. [5]
+T-closeness is a further modified version of l-diversity group based on the removal of information that could lead to an individual being identified by preserving the privacy in datasets. This is done by the use of some data mining techniques and algorithms which results in some loss of effectiveness in data management.
+Sensitive information leaks may occur because while l-diversity requirement ensures “diversity” of sensitive values in each group, it does not recognize that values may be similar to each other, for example, an attacker could deduce a stomach disease applies to an individual if a sample containing the individual only listed three different stomach diseases.
+The privacy in T-closeness is measured by the information gain of an observer.
+Information Gain=Posterior Belief- Prior Belief.
+Prior Belief means the beliefs of a person about an individual before the data table is released. After the data table is released and the person scans through the various attributes defined in the table the person gets a more clear idea about the possibilities present in the dataset resulting in Posterior Belief. [5]
+The main aim in T-Closeness is to limit the distance between the sensitive attributes of a particular equivalence class and the sensitive attributes of the whole table. This is done in order to make it difficult for an intruder to identify an individual.
+
+# # Advantages:
+It protects data privacy by not disclosing the attributes.
+It protects against the known homogeneity attacks and background knowledge attacks encountered in K-Anonymity.
+It overcomes the limitations of L-Diversity by identifying the semantic closeness of the attributes.
+
+# # Limitations:
+As t decreases for increasing the privacy the correlation between QID’s and sensitive attributes is lost.
