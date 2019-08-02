@@ -19,9 +19,12 @@ Due to the advancement in various technologies, ubiquitous and pervasive computi
 # # K- Anonymity
 An identifier is a certain property or characteristic that is used to describe an individual. It may or may not be same for two different individuals. For example, Name, Age, Gender, Date of Birth are some commonly used identifiers.
 Quasi-identifiers [2] are those identifiers which are themselves not unique identifiers but when combined with other quasi-identifiers can become a source of identity information. This is called re-identification through the use of quasi-identifiers. For example, neither of these identifiers such as gender, date of birth or postal codes can single-handedly identify an individual. But when these 3 identifiers are combined they can very easily identify more than half of the population. This is a case of re-identification by linking various available datasets scattered across the web. K-Anonymity[2] is a property of a dataset used to describe the dataset’s level of anonymity. If the person’s information in a given dataset cannot be distinguished from at least (k-1) person’s information in the same dataset then the dataset is said to be K-anonymous. Some of the techniques [2] used in the implementation of k-anonymity are:
-1. Generalization: It is a technique in which a value of a particular attribute is replaced by a more general and less specific value which is consistent with the original dataset. 
 
-# # Suppression
+# Generalization
+
+It is a technique in which a value of a particular attribute is replaced by a more general and less specific value which is consistent with the original dataset. 
+
+# Suppression
 
 Suppression is a method of removal of specific information from the dataset to protect the identity and privacy of an individual. In this method all or some values of the attributes are replaced by asterisk ‘*’.The set of k records is known as equivalence class. Any record in a k anonymized data set has a maximum probability 1/k of being re-identified known as the threshold risk. Higher values of k implies a lower probability of re-identification, but also more distortion to the data, and hence greater information loss due to k anonymization. Excessive anonymization can make the disclosed data less useful to the recipients because it produces biased and incorrect results.
 So the main advantage of K anonymity is that to an extent it helps in providing privacy to an individual by using generalisation and suppression techniques to remove the straightforward identifiers that can cause serious threat to a person’s privacy. Also it has one more advantage i.e. it is easy and simple to understand and implement.
@@ -33,5 +36,5 @@ Homogeneity Attack: This attack generally occurs due to the lack of diversity of
 Background-knowledge Attack: By knowing the certain background knowledge one can successfully eliminate possible values of sensitive attributes of an individual with very high probability and can get to know the sensitive data.
 
 # # Limitations:
- Removing only some of the obvious identifiers doesn’t help as the remaining set of identifiers, known as quasi identifiers can combine together and use the available dataset to re- identify a particular individual.
- Also, as K increases the level of anonymity increases but the information loss also increases as the values of the attributes or the identifiers keeps on decreasing. So there is heavy distortion of data with increase in the value of k or the level of anonymity. Also, it does not take into consideration the sensitive attributes for anonymization which can disclose information.
+Removing only some of the obvious identifiers doesn’t help as the remaining set of identifiers, known as quasi identifiers can combine together and use the available dataset to re- identify a particular individual.
+Also, as K increases the level of anonymity increases but the information loss also increases as the values of the attributes or the identifiers keeps on decreasing. So there is heavy distortion of data with increase in the value of k or the level of anonymity. Also, it does not take into consideration the sensitive attributes for anonymization which can disclose information.
